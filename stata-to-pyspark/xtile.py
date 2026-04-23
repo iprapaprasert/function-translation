@@ -23,8 +23,8 @@ def xtile(
 
     Returns
     -------
-    `Column`
-        a new variable containing the percentiles of `col`
+    `pyspark.sql.DataFrame`
+        A given DataFrame with new variable containing the percentiles of `col`
     """
     tempdf = df.select(x, weight)
     
