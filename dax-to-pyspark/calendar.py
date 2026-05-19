@@ -54,7 +54,7 @@ def calendar(
             dayofmonth("Date").alias("Day"),
             date_format("Date", "QQQ").alias("QuarterName"),
             date_format("Date", "MMM").alias("MonthName"),
-            date_format(col("Date"), "yyyyQQ").alias("YearQuarter"),
-            date_format(col("Date"), "yyyyMM").alias("YearMonth"),
+            date_format(col("Date"), "yyyyQQ").cast(IntegerType()).alias("YearQuarter"),
+            date_format(col("Date"), "yyyyMM").cast(IntegerType()).alias("YearMonth")
         )
     return calendar
