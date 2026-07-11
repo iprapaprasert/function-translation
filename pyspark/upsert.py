@@ -24,7 +24,7 @@ def upsert(df: "DataFrame", table: str, mergeKeys: list[str]) -> None:
     delta_table = DeltaTable.forPath(spark, path)
     
     merge_condition = " AND ".join(
-        [f"target.{key} = source.{key}" for key in mergeKeys]
+        [f"target.{key} <=> source.{key}" for key in mergeKeys]
     )
     
     delta_table.alias("target") \
